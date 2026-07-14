@@ -91,7 +91,29 @@ h1,h2,nav h2{
     animation: pulse 2s infinite;
   }
   @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.1);} }
+.review-top{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
+}
 
+.avatar{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:var(--gold);
+    color:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:700;
+    font-size:18px;
+}
+
+.stars{
+    color:var(--gold);
+}
   /* FADE */
   .fade { opacity: 0; transform: translateY(30px); transition: 1s; }
   .fade.show { opacity: 1; transform: translateY(0); }
@@ -214,12 +236,49 @@ h1,h2,nav h2{
 <!-- REVIEWS -->
 <section id="reviews" class="fade" style="background: var(--gray);">
   <h2 style="text-align:center; color: var(--gold); font-size: 2.5rem;">⭐ Reviews</h2>
-  <div style="max-width: 700px; margin: auto;">
-    <div class="review">⭐⭐⭐⭐<br>"Best haircut I've had in this area."</div>
-    <div class="review">⭐⭐⭐⭐<br>"Professional service and really friendly staff."</div>
-    <div class="review">⭐⭐⭐⭐⭐<br>"Clean shop and entertainment."</div>
+<div class="review">
+  <div class="review-top">
+    <div class="avatar">DA</div>
+
+    <div>
+      <strong>Daniel .</strong><br>
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+    </div>
   </div>
-</section>
+
+  <p>"Best haircut I've had in this area. The cut was clean and the service was excellent."</p>
+
+</div>
+<div class="review">
+
+  <div class="review-top">
+    <div class="avatar">CO</div>
+
+    <div>
+      <strong>Chinedu O.</strong><br>
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+    </div>
+  </div>
+
+  <p>"Professional service and friendly staff. I'll definitely be back."</p>
+
+</div>
+<div class="review">
+
+  <div class="review-top">
+    <div class="avatar">ME</div>
+
+    <div>
+      <strong>Michael E.</strong><br>
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+    </div>
+  </div>
+
+  <p>"Clean shop, relaxing atmosphere, and excellent attention to detail."</p>
+
+</div>
+
+ </section>
 
 <!-- CONTACT + BOOKING -->
 <section id="contact" class="fade">
@@ -258,7 +317,7 @@ h1,h2,nav h2{
 <footer class="footer">
   <div class="footer-container">
 
-    <h2>Apex Barbershop</h2>
+    <h2>Friends Barbershop</h2>
     <p>Sharp Cuts. Clean Style. Premium Experience.</p>
 
     <div class="footer-links">
@@ -274,11 +333,6 @@ h1,h2,nav h2{
     <p class="copyright">
       © 2026 Friends Barbershop. All Rights Reserved.
     </p>
-
-    <p class="developer">
-      Designed & Developed by <strong>Kysen</strong>
-    </p>
-
   </div>
 </footer>
 <script>
