@@ -3,378 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Friends Barbershop - Sharp Cuts. Clean Style.</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Avenix</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  button,
-.btn,
-a,
-input,
-select,
-.review,
-.service-card{
-    transition: all 0.3s ease;
-}
-   
-  :root {
-    --gold: #D4AF37;
-    --black: #0A0A0A;
-    --gray: #1A1A1A;
-  }
-    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-  body{
-    font-family:'Poppins',sans-serif;
-    background: var(--black);
-    color: white;
-    line-height: 1.6;
-  }
-
-h1,h2,nav h2{
-    font-family:'Bebas Neue',sans-serif;
-    letter-spacing:2px;
-}
-    
-  
-  /* NAV */
-  nav {
-    position: fixed; top: 0; width: 100%;
-    background: rgba(10,10,10,0.95); backdrop-filter: blur(10px);
-    padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100;
-  }
-  nav a { color: white; text-decoration: none; margin: 0 15px; transition: 0.3s; }
-  nav a:hover { color: var(--gold); }
-  .nav-links { display: flex; }
-  
-  /* HAMBURGER */
-  .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
-  .hamburger span { width: 25px; height: 3px; background: var(--gold); transition: 0.3s; }
-  .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 60px; right: 5%; background: var(--gray); padding: 20px; border-radius: 8px; }
-
-  section { padding: 100px 5%; min-height: 100vh; }
-
-  /* HERO */
-  #home {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1200') center/cover;
-    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
-  }
-  #home h1 { font-size: 3.5rem; color: var(--gold); animation: glow 2s ease-in-out infinite alternate; }
-  @keyframes glow { from { text-shadow: 0 0 10px var(--gold); } to { text-shadow: 0 0 30px var(--gold); } }
-  .btn {
-    background: var(--gold); color: black; padding: 12px 30px; border: none; border-radius: 8px;
-    font-weight: bold; cursor: pointer; margin: 10px; transition: transform 0.3s; text-decoration: none; display: inline-block;
-  }
-  .btn:hover { transform: scale(1.05); }
-
-  /* SERVICES */
-  #services { background: var(--gray); }
-  table { width: 100%; max-width: 600px; margin: 30px auto; border-collapse: collapse; }
-  td { padding: 15px; border-bottom: 1px solid #333; }
-  td:last-child { text-align: right; color: var(--gold); font-weight: bold; }
-
-  /* BOOKING FORM */
-  form { max-width: 500px; margin: 30px auto; }
-  input, select {
-    width: 100%; padding: 12px; margin: 10px 0; background: var(--gray); 
-    border: 1px solid #333; color: white; border-radius: 8px; font-size: 1rem;
-  }
-
-  /* REVIEWS */
-  .review { background: var(--gray); padding: 20px; margin: 15px 0; border-left: 3px solid var(--gold); border-radius: 5px; }
-
-  /* WHATSAPP */
-  .whatsapp {
-    position: fixed; bottom: 20px; right: 20px;
-    background: #25D366; padding: 15px; border-radius: 50%;
-    font-size: 24px; text-decoration: none; color: white; z-index: 999;
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.1);} }
-.review-top{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    margin-bottom:15px;
+:root {
+  --bg: #0B0B0B;
+  --primary: #0F62FE;
+  --accent: #4CC9F0;
+  --text: #FFFFFF;
+  --text2: #A0A0A0;
 }
 
-.avatar{
-    width:50px;
-    height:50px;
-    border-radius:50%;
-    background:var(--gold);
-    color:black;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-weight:700;
-    font-size:18px;
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
+h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; }
+a { color: var(--accent); text-decoration: none; }
+section { padding: 100px 20px; max-width: 1100px; margin: auto; opacity: 0; transform: translateY(30px); transition: 0.8s; }
+section.show { opacity: 1; transform: translateY(0); }
 
-.stars{
-    color:var(--gold);
-}
-  /* FADE */
-  .fade { opacity: 0; transform: translateY(30px); transition: 1s; }
-  .fade.show { opacity: 1; transform: translateY(0); }
+/* Navbar */
+nav { position: fixed; top: 0; width: 100%; background: rgba(11,11,11,0.8); backdrop-filter: blur(10px); padding: 20px; z-index: 1000; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+nav a:hover { color: var(--primary); }
 
-  /* MOBILE */
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    #home h1 { font-size: 2.5rem; }
-  }
-  
-  .footer{
-    background:#050505;
-    padding:60px 20px 30px;
-    text-align:center;
-    border-top:2px solid var(--gold);
-}
+/* Hero */
+#home { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+#home h1 { font-size: clamp(3rem, 10vw, 5rem); color: var(--primary); }
+.typing { font-size: 1.2rem; color: var(--accent); height: 30px; }
+.btn { padding: 12px 30px; border: 2px solid var(--primary); border-radius: 8px; margin: 10px; transition: 0.3s; cursor: pointer; display: inline-block; font-weight: 600; background: transparent; color: var(--text); }
+.btn:hover { background: var(--primary); box-shadow: 0 0 20px var(--primary); }
 
-.footer h2{
-    color:var(--gold);
-    font-size:2rem;
-    margin-bottom:10px;
-}
+/* Cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+.card { background: #111; padding: 0; border-radius: 12px; border: 1px solid #222; transition: 0.3s; overflow: hidden; }
+.card:hover { transform: translateY(-10px); border-color: var(--accent); }
+.card img { width: 100%; height: 220px; object-fit: cover; }
+.card-content { padding: 25px; }
+.tag { background: var(--primary); padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; margin-right: 8px; }
 
-.footer p{
-    color:#bdbdbd;
-}
+/* Skills */
+.skill { margin: 15px 0; }
+.bar { background: #222; height: 8px; border-radius: 5px; overflow: hidden; }
+.fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); width: 0; transition: 2s; }
 
-.footer-links{
-    margin:30px 0;
-}
+/* Current Project */
+.current { border: 2px dashed var(--accent); text-align: center; padding: 40px; }
 
-.footer-links a{
-    color:white;
-    text-decoration:none;
-    margin:0 15px;
-    transition:.3s;
-}
+/* Contact Form */
+form { max-width: 600px; margin: 40px auto 0; display: grid; gap: 15px; }
+input, textarea { background: #111; border: 1px solid #333; color: var(--text); padding: 14px; border-radius: 8px; font-family: 'Poppins'; font-size: 1rem; }
+input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+.contact-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
 
-.footer-links a:hover{
-    color:var(--gold);
-}
-
-.footer-social{
-    margin-bottom:25px;
-}
-
-.footer-social a{
-    color:var(--gold);
-    text-decoration:none;
-    margin:0 15px;
-    font-weight:bold;
-}
-
-.footer hr{
-    border:none;
-    border-top:1px solid #333;
-    margin:25px auto;
-    max-width:600px;
-}
-
-.copyright{
-    font-size:.9rem;
-}
-
-.developer{
-    margin-top:10px;
-    color:var(--gold);
-    font-size:.95rem;
-    letter-spacing:1px;
-}
+/* Footer */
+footer { text-align: center; padding: 40px 20px; color: var(--text2); border-top: 1px solid #222; }
 </style>
 </head>
 <body>
 
 <nav>
-  <h2 style="color: var(--black);">FRIENDS Barbershop</h2>
-  <div class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
+  <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a>
+  <a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
 </nav>
 
 <!-- HOME -->
 <section id="home">
-  <h1>FRIENDS BARBERSHOP</h1>
-  <p style="font-size: 1.2rem; margin: 20px 0;">Sharp Cuts. Clean Styles. Premium Experience.</p>
+  <h1>AVENIX</h1>
+  <p style="color: var(--text2); font-size: 1.2rem; letter-spacing: 1px;">Web Developer • Brand Designer • Future Mechatronics Engineer</p>
+  <p class="typing"></p>
   <div>
-    <a href="#contact" class="btn">Book Appointment</a>
-    <a href="#services" class="btn" style="background: transparent; border: 2px solid var(--gold); color: var(--gold);">Services</a>
+    <a href="#projects" class="btn">View My Work</a>
+    <a href="#contact" class="btn">Contact Me</a>
   </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="fade">
-  <h2 style="text-align:center; color: var(--gold); font-size: 2.5rem;">Our  Services</h2>
-  <table>
-    <tr><td>Haircut</td><td>₦1,500</td></tr>
-    <tr><td>Beard Trim</td><td>₦1,000</td></tr>
-    <tr><td>Hair Wash</td><td>₦1,500</td></tr>
-    <tr><td>Premium Package</td><td>₦4,500</td></tr>
-  </table>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="fade">
-  <h2 style="text-align:center; color: var(--gold); font-size: 2.5rem;"> About</h2>
-  <p style="max-width: 700px; margin: 30px auto; text-align: center; font-size: 1.1rem;">
-    Friends Barbershop provides modern grooming services in a clean and welcoming environment. 
-    Our experienced barbers focus on quality, precise results, and customer satisfaction.
+<section id="about">
+  <h2 style="font-size: 3rem; color: var(--primary);">About Me</h2>
+  <p style="margin-top: 20px; color: var(--text2); font-size: 1.1rem; max-width: 800px; line-height: 1.8;">
+    I design modern brands, build responsive websites, and develop software solutions while pursuing my goal of becoming a mechatronics engineer.
+    Every project is an opportunity to solve real problems and improve my craft.
   </p>
 </section>
 
-<!-- REVIEWS -->
-<section id="reviews" class="fade" style="background: var(--gray);">
-  <h2 style="text-align:center; color: var(--gold); font-size: 2.5rem;">⭐ Reviews</h2>
-<div class="review">
-  <div class="review-top">
-    <div class="avatar">DA</div>
-
-    <div>
-      <strong>Daniel .</strong><br>
-      <span class="stars">⭐⭐⭐⭐⭐</span>
-    </div>
+<!-- SERVICES -->
+<section id="services">
+  <h2 style="font-size: 3rem; color: var(--primary); text-align: center;">Services</h2>
+  <div class="grid">
+    <div class="card"><div class="card-content"><h3>🎨 Brand Identity</h3><p>Logo Design<br>Brand Guidelines<br>Social Media Kit</p></div></div>
+    <div class="card"><div class="card-content"><h3>🌐 Website Development</h3><p>Landing Pages<br>Business Websites<br>Portfolio Websites</p></div></div>
+    <div class="card"><div class="card-content"><h3>🤖 Automation</h3><p>Community Tools<br>Business Bots<br>Custom Scripts</p></div></div>
   </div>
+</section>
 
-  <p>"Best haircut I've had in this area. The cut was clean and the service was excellent."</p>
+<!-- PROJECTS -->
+<section id="projects">
+  <h2 style="font-size: 3rem; color: var(--primary); text-align: center;">Projects</h2>
+  <div class="grid">
 
-</div>
-<div class="review">
-
-  <div class="review-top">
-    <div class="avatar">CO</div>
-
-    <div>
-      <strong>Chinedu O.</strong><br>
-      <span class="stars">⭐⭐⭐⭐⭐</span>
+    <!-- PROJECT 1: BARBERSHOP -->
+    <div class="card">
+     <img src="images/barbershop-home.png" alt="Friends Barbershop Homepage">
+      <div class="card-content">
+        <h3>Friends Barbershop</h3>
+        <p style="color: var(--text2); margin: 10px 0;">Modern single-page website for a barbershop. Mobile-first design with WhatsApp booking and customer reviews section.</p>
+        <div style="margin: 10px 0;"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+        <a href="https://friendsbarbershop.netlify.app/" target="_blank" class="btn"> Live Demo</a>
+      </div>
     </div>
-  </div>
 
-  <p>"Professional service and friendly staff. I'll definitely be back."</p>
-
-</div>
-<div class="review">
-
-  <div class="review-top">
-    <div class="avatar">ME</div>
-
-    <div>
-      <strong>Michael E.</strong><br>
-      <span class="stars">⭐⭐⭐⭐⭐</span>
+    <!-- PROJECT 2: REVIEWS -->
+    <div class="card">
+      <img src="images/barbershop-reviews.png" alt="Friends Barbershop Reviews">
+      <div class="card-content">
+        <h3>Friends Barbershop - Reviews UI</h3>
+        <p style="color: var(--text2); margin: 10px 0;">Customer testimonial section with 5-star ratings. Focused on clean UX and mobile responsiveness.</p>
+        <div style="margin: 10px 0;"><span class="tag">UI/UX</span><span class="tag">Responsive</span></div>
+        <a href="https://friendsbarbershop.netlify.app/" target="_blank" class="btn">🌍 View Site</a>
+      </div>
     </div>
+
+    <!-- PROJECT 3: COMING SOON -->
+    <div class="card">
+      <div class="card-content">
+        <h3>Coming Soon</h3>
+        <h4 style="color: var(--accent);">Custom Telegram Bot Platform</h4>
+        <p style="color: var(--text2); margin: 10px 0;">Currently under development. A platform for building and managing custom Telegram bots for businesses.</p>
+        <div style="margin: 10px 0;"><span class="tag">Python</span><span class="tag">In Development</span></div>
+      </div>
+    </div>
+
   </div>
+</section>
 
-  <p>"Clean shop, relaxing atmosphere, and excellent attention to detail."</p>
+<!-- CURRENTLY BUILDING -->
+<section>
+  <div class="card current">
+     <img src="images/drone-blueprint.png" alt="Drone blueprint">  
+    <h2 style="color: var(--accent);">🛠️ Current Project</h2>
+    <h3>Autonomous GPS Follow-Me Drone</h3>
+    <p style="color: var(--text2); margin-top: 10px;">Status: <span style="color: var(--primary); font-weight: 600;">In Development</span></p>
+    <p style="color: var(--text2); margin-top: 10px; max-width: 600px; margin: auto;">Building with Arduino, GPS module, and computer vision. Goal: Follow user automatically without remote.</p>
+  </div>
+</section>
 
-</div>
+<!-- SKILLS -->
+<section id="skills">
+  <h2 style="font-size: 3rem; color: var(--primary); text-align: center;">Skills</h2>
+  <div class="skill"><p>HTML — 85%</p><div class="bar"><div class="fill" data-width="85%"></div></div></div>
+  <div class="skill"><p>CSS — 80%</p><div class="bar"><div class="fill" data-width="80%"></div></div></div>
+  <div class="skill"><p>JavaScript — 60%</p><div class="bar"><div class="fill" data-width="60%"></div></div></div>
+  <div class="skill"><p>Python — 60%</p><div class="bar"><div class="fill" data-width="60%"></div></div></div>
+  <div class="skill"><p>Git & GitHub — 70%</p><div class="bar"><div class="fill" data-width="70%"></div></div></div>
+  <div class="skill"><p>Figma — 85%</p><div class="bar"><div class="fill" data-width="85%"></div></div></div>
+</section>
 
- </section>
+<!-- CONTACT -->
+<section id="contact">
+  <h2 style="font-size: 3rem; color: var(--primary); text-align: center;">Contact</h2>
 
-<!-- CONTACT + BOOKING -->
-<section id="contact" class="fade">
-  <h2 style="text-align:center; color: var(--gold); font-size: 2.5rem;">📞 Book Appointment</h2>
-  <p style="text-align:center;">Fill this and it will send to our WhatsApp</p>
-  
-  <form id="bookingForm">
+  <form id="contactForm">
     <input type="text" id="name" placeholder="Your Name" required>
-    <input type="tel" id="phone" placeholder="Your Phone Number" required>
-    <select id="service" required>
-      <option value="">Select Service</option>
-      <option>Haircut - ₦1,500</option>
-      <option>Beard Trim - ₦1,000</option>
-      <option>Hair Wash - ₦1,500</option>
-      <option>Premium Package - ₦4,500</option>
-    </select>
-    <input type="date" id="date" required>
-    <input type="time" id="time" required>
-    <button type="submit" class="btn" style="width:100%;">Book via WhatsApp</button>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+
+    <div class="contact-buttons">
+      <button type="button" class="btn" onclick="sendWhatsApp()">💬 WhatsApp</button>
+      <button type="button" class="btn" onclick="sendEmail()">📧 Email</button>
+      <button type="button" class="btn" onclick="sendGitHub()">💻 GitHub</button>
+    </div>
   </form>
 
-  <div style="text-align:center; margin: 30px 0;">
-    <p><b>Phone:</b> +234 911 705 7578</p>
-    <p><b>Instagram:</b> @friendsbarbershop</p>
-    <p><b>Address:</b> Road D No°43 , FHE Nyanya Abuja, Nigeria</p>
-  </div>
-<iframe
-  src="https://www.google.com/maps?q=FHA+Nyanya,+Abuja,+Nigeria&output=embed"
-  width="100%"
-  height="300"
-  style="border:0; border-radius:10px;"
-  loading="lazy">
-</iframe>
-  </section>
+  <p style="text-align: center; margin-top: 30px; color: var(--text2);">
+    Or reach me directly: <br>
+    📧 azeezsalihu8@gmail.com | 💬 +234 911 705 7578
+  </p>
+</section>
 
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/2349117057578" class="whatsapp" target="_blank">💬</a>
-
-<footer class="footer">
-  <div class="footer-container">
-
-    <h2>Friends Barbershop</h2>
-    <p>Sharp Cuts. Clean Style. Premium Experience.</p>
-
-    <div class="footer-links">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#contact">Contact</a>
-    </div>
-
-    <hr>
-
-    <p class="copyright">
-      © 2026 Friends Barbershop. All Rights Reserved.
-    </p>
-  </div>
+<footer>
+  Designed & Developed by <span style="color: var(--accent);">Avenix Dev</span><br>
+  © 2026 All Rights Reserved
 </footer>
+
 <script>
-  // Hamburger toggle
-  function toggleMenu() {
-    document.querySelector('.nav-links').classList.toggle('active');
-  }
+// Fade on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show') });
+});
+document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-  // Close menu when link clicked
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.querySelector('.nav-links').classList.remove('active');
-    });
+// Typing effect
+const texts = ["Building websites", "Building brands", "Building bots", "Building future robotics"];
+let i=0, j=0, del=false;
+function type(){
+  const el = document.querySelector('.typing');
+  if(!el) return;
+  el.innerText = texts[i].substring(0,j);
+  if(!del && j++==texts[i].length){ del=true; setTimeout(type,1000); return; }
+  if(del && j--==0){ del=false; i=(i+1)%texts.length; }
+  setTimeout(type, del?50:100);
+}
+type();
+
+// Skill bars animate
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('.fill').forEach(f => {
+    if(f.getBoundingClientRect().top < window.innerHeight)
+      f.style.width = f.dataset.width;
   });
+});
 
-  // Booking to WhatsApp
-  document.getElementById('bookingForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const service = document.getElementById('service').value;
-    const date = document.getElementById('date').value;
-    const time = document.getElementById('time').value;
-    
-    const message = `New Booking:%0A%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0ADate: ${date}%0ATime: ${time}`;
-    const whatsappNumber = "2349117057578"; // CHANGE THIS TO YOUR REAL NUMBER
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-  });
+// CONTACT FORM FUNCTIONS
+function getFormData(){
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+  if(!name ||!email ||!message){ alert("Please fill all fields"); return null; }
+  return `New Portfolio Message%0A%0AName: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+}
 
-  // Fade in on scroll
-  const faders = document.querySelectorAll('.fade');
-  const appearOptions = { threshold: 0.3 };
-  const appearOnScroll = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){ entry.target.classList.add('show'); }
-    });
-  }, appearOptions);
-  faders.forEach(fader => appearOnScroll.observe(fader));
+function sendWhatsApp(){
+  const data = getFormData();
+  if(!data) return;
+  const phone = "2349117057578";
+  window.open(`https://wa.me/${phone}?text=${data}`, '_blank');
+}
+
+function sendEmail(){
+  const data = getFormData();
+  if(!data) return;
+  const email = "azeezsalihu8@gmail.com";
+  window.location.href = `mailto:${email}?subject=Portfolio Contact from ${document.getElementById('name').value}&body=${data}`;
+}
+
+function sendGitHub(){
+  window.open("https://github.com/azeezsalihu8-dotcom/friends-barbershop-demo", "_blank"); // Replace with your github link
+}
 </script>
-
 </body>
 </html>
